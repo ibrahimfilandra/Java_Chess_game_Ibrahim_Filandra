@@ -29,7 +29,7 @@ if(position.charAt(0)>'h')throw new IllegalArgumentException();
         if(position.length()!=2) throw new IllegalArgumentException();
 
         if(abs(this.getPosition().charAt(1)-position.charAt(1))>1) throw new IllegalChessMoveException();
-        if(abs(this.getPosition().charAt(0)-position.charAt(0))>1  && abs(this.getPosition().charAt(0) -position.charAt(0))!=33)
+        if(abs(this.getPosition().charAt(0)-position.charAt(0))>1  || abs(this.getPosition().charAt(0) -position.charAt(0))!=33)
             throw new IllegalChessMoveException();
 
   this.position=position;
