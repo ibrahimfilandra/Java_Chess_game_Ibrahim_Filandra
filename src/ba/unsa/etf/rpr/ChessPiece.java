@@ -8,6 +8,8 @@ public abstract class ChessPiece {
     String position;
     Color color;
 
-
+    String getPosition() {
+        return position;
+    }
 
 }
