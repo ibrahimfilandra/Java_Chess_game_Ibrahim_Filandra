@@ -12,4 +12,7 @@ public abstract class ChessPiece {
         return position;
     }
 
+    Color getColor() {
+        return color;
+    }
 }
