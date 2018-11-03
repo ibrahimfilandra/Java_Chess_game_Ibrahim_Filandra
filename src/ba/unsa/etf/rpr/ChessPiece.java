@@ -20,8 +20,6 @@ public abstract class ChessPiece {
 
     void Move(String position) {
 
-
-
     }
 
 
