@@ -18,7 +18,7 @@ public abstract class ChessPiece {
 
 
 
-    void Move(String position) {
+    void move(String position) {
 
     }
 

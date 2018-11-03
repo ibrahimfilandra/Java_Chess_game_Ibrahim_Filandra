@@ -2,9 +2,6 @@ package ba.unsa.etf.rpr;
 
 public class Queen extends ChessPiece {
 
-    String position;
-    Color color;
-
     Queen (String position, Color color) {
         if(position.charAt(0)<'a'){
             if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();
@@ -18,7 +15,7 @@ public class Queen extends ChessPiece {
 
     }
 
-    @Override
+    
     void Move(String position) {
         if(position.charAt(0)<'a'){
             if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();

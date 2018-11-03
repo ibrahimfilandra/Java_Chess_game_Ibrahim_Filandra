@@ -4,8 +4,6 @@ import static java.lang.Math.abs;
 
 public class King extends ChessPiece {
 
-    String position;
-    Color color;
     King (String position, Color color){
         if(position.charAt(0)<'a'){
             if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();
@@ -18,12 +16,8 @@ public class King extends ChessPiece {
         this.color=color;
     }
 
-    public class IllegalChessMoveException extends RuntimeException {
-   public IllegalChessMoveException() {super();}
-
-    }
     @Override
-    void Move(String position) {
+   public void move(String position) {
 
 
 if(position.charAt(0)<'a'){
