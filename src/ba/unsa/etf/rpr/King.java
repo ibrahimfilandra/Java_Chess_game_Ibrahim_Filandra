@@ -38,6 +38,6 @@ if(position.charAt(0)>'h')throw new IllegalArgumentException();
         if(abs(this.getPosition().charAt(0)-position.charAt(0))>1  && abs(this.getPosition().charAt(0) -position.charAt(0))!=33)
             throw new IllegalChessMoveException();
 
-
+  this.position=position;
     }
 }

@@ -18,4 +18,19 @@ public class Queen extends ChessPiece {
 
     }
 
+    @Override
+    void Move(String position) {
+        if(position.charAt(0)<'a'){
+            if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();
+        }
+        if(position.charAt(0)>'h')throw new IllegalArgumentException();
+
+        if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException();
+        if(position.length()!=2) throw new IllegalArgumentException();
+
+        this.position=position;
+    }
+
+
+
 }
