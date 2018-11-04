@@ -25,8 +25,9 @@ public class Pawn extends ChessPiece{
         if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException();
         if(position.length()!=2) throw new IllegalArgumentException();
 
-        if   (!( (position.charAt(0)==this.position.charAt(0) || abs(this.position.charAt(0)-position.charAt(0))==32  )&& position.charAt(1)-this.position.charAt(1)==1 ))
-          throw new IllegalChessMoveException(); //samo se moze kretati naprijed za 1 polje
+        if   (!( (position.charAt(0)==this.position.charAt(0)||abs(position.charAt(0)-this.position.charAt(0))==1 || abs(this.position.charAt(0)-position.charAt(0))==32|| abs(this.position.charAt(0)-position.charAt(0))==31
+        ||abs(this.position.charAt(0)-position.charAt(0))==33)&& position.charAt(1)-this.position.charAt(1)==1 ))
+          throw new IllegalChessMoveException(); //samo se moze kretati naprijed za 1 polje i dijagonalno naprijed za 1 polje
         this.position=position;
     }
 
