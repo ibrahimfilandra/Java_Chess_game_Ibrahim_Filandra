@@ -29,7 +29,7 @@ public class Queen extends ChessPiece {
 
         if (!(position.charAt(0)==this.position.charAt(0) || this.position.charAt(1)==position.charAt(1) || (abs(this.position.charAt(0)
         -position.charAt(0))==abs(this.position.charAt(1)-position.charAt(1)))
-        || abs(position.charAt(0)-this.position.charAt(0))-32==abs(this.position.charAt(1)-position.charAt(0))
+        || abs(position.charAt(0)-this.position.charAt(0)-32)==abs(this.position.charAt(1)-position.charAt(0))
         )) throw new IllegalChessMoveException();
         //ako se ne krece u istom redu ili u istoj koloni ili dijagonalno, baci izuzetak
         // uracunato i to da se prihvataju i mala i velika slova za oznaku kolona
