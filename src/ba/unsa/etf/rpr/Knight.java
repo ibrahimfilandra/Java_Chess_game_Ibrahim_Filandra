@@ -29,9 +29,11 @@ public class Knight extends ChessPiece {
         if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException();
         if(position.length()!=2) throw new IllegalArgumentException();
 
-        if (!( abs(position.charAt(0)-this.position.charAt(0))==3 &&  abs(position.charAt(1)-this.position.charAt(1))==1 ) ||
+        if (! (( abs(position.charAt(0)-this.position.charAt(0))==3 &&  abs(position.charAt(1)-this.position.charAt(1))==1 ) ||
         ( abs(position.charAt(1)-this.position.charAt(1))==3 &&  abs(position.charAt(0)-this.position.charAt(0))==1 ) ||
-                ( abs(position.charAt(0)-this.position.charAt(0))==35 &&  abs(position.charAt(1)-this.position.charAt(1))==1 ))
+                ( abs(position.charAt(0)-this.position.charAt(0))==35 &&  abs(position.charAt(1)-this.position.charAt(1))==1 )
+        ||( abs(position.charAt(0)-this.position.charAt(0))==29 &&  abs(position.charAt(1)-this.position.charAt(1))==1 )
+        ))
             throw new IllegalChessMoveException();
     }
 
