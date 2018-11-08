@@ -44,6 +44,21 @@ brojaczafigure++;
 try {
 
     board[i][j].move(position);
+    if(board[i][j] instanceof Bishop)
+    board[position.charAt(0)-65][position.charAt(1)-1]= new Bishop(board[i][j].getPosition(), board[i][j].getColor()); //azuriranje nove pozicije figure u 2D nizu
+    if(board[i][j] instanceof King)
+        board[position.charAt(0)-65][position.charAt(1)-1]= new King(board[i][j].getPosition(), board[i][j].getColor());
+    if(board[i][j] instanceof Queen)
+        board[position.charAt(0)-65][position.charAt(1)-1]= new Queen(board[i][j].getPosition(), board[i][j].getColor());
+    if(board[i][j] instanceof Knight)
+        board[position.charAt(0)-65][position.charAt(1)-1]= new Knight(board[i][j].getPosition(), board[i][j].getColor());
+    if(board[i][j] instanceof Pawn)
+        board[position.charAt(0)-65][position.charAt(1)-1]= new Pawn(board[i][j].getPosition(), board[i][j].getColor());
+    if(board[i][j] instanceof Rook)
+        board[position.charAt(0)-65][position.charAt(1)-1]= new Rook(board[i][j].getPosition(), board[i][j].getColor());
+
+    board[i][j].PostaviNaNeaktivno(); // ostavi prazno mjesto gdje je prethodno bila figura
+
 break prva;
 }
 catch( Exception e) {
