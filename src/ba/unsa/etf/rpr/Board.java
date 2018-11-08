@@ -86,7 +86,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
                    int rednadjene=oldPosition.charAt(1)-1;
                    int kolonanadjene=oldPosition.charAt(0)-65;
-
+                  if(board[rednadjene][kolonanadjene].getPosition()=="") throw new IllegalArgumentException(); //ako na oldPosition nema figure
                         try {
                                 board[rednadjene][kolonanadjene].move(newPosition);
                         }
