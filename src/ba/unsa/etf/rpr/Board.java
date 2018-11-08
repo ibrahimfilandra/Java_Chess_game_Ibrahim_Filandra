@@ -34,24 +34,25 @@ public class Board implements Cloneable{
     }
 
    void move (Class type, ChessPiece.Color color, String position) {
-
+       int brojaczafigure=0,brojaczaizuzetke=0;
         for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
              if(board[i][j].getClass()==type && board[i][j].getPosition()!="") {
                  String pomocna=board[i][j].getPosition();
-
+brojaczafigure++;
 try {
 
     board[i][j].move(position);
 
 }
 catch( Exception e) {
-
+brojaczaizuzetke++;
                  }
              }
 
             }
         }
+if(brojaczafigure==brojaczaizuzetke) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
    }
