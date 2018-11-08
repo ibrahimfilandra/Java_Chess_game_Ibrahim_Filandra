@@ -89,4 +89,9 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
    }
 
 
+   boolean isCheck ( ChessPiece.Color color) {
+        return false;
+   }
+
+
 }
