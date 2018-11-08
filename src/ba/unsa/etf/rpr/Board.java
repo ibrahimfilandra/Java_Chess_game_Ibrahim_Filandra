@@ -35,7 +35,7 @@ public class Board implements Cloneable{
 
    void move (Class type, ChessPiece.Color color, String position) {
        int brojaczafigure=0,brojaczaizuzetke=0;
-       String pomocna="";
+       String pomocna=""; int rednadjene=0, kolonanadjene=0;
     prva:    for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
              if(board[i][j].getClass()==type && board[i][j].getPosition()!="") {
@@ -44,43 +44,44 @@ brojaczafigure++;
 try {
 
     board[i][j].move(position);
-    if(board[i][j] instanceof Bishop)
-    board[position.charAt(0)-65][position.charAt(1)-1]= new Bishop(board[i][j].getPosition(), board[i][j].getColor()); //azuriranje nove pozicije figure u 2D nizu
-    if(board[i][j] instanceof King)
-        board[position.charAt(0)-65][position.charAt(1)-1]= new King(board[i][j].getPosition(), board[i][j].getColor());
-    if(board[i][j] instanceof Queen)
-        board[position.charAt(0)-65][position.charAt(1)-1]= new Queen(board[i][j].getPosition(), board[i][j].getColor());
-    if(board[i][j] instanceof Knight)
-        board[position.charAt(0)-65][position.charAt(1)-1]= new Knight(board[i][j].getPosition(), board[i][j].getColor());
-    if(board[i][j] instanceof Pawn)
-        board[position.charAt(0)-65][position.charAt(1)-1]= new Pawn(board[i][j].getPosition(), board[i][j].getColor());
-    if(board[i][j] instanceof Rook)
-        board[position.charAt(0)-65][position.charAt(1)-1]= new Rook(board[i][j].getPosition(), board[i][j].getColor());
-
-    board[i][j].PostaviNaNeaktivno(); // ostavi prazno mjesto gdje je prethodno bila figura
+rednadjene=i; kolonanadjene=j;
 
 break prva;
 }
 catch( Exception e) {
 brojaczaizuzetke++;
                  }
-             }
+            }
 
             }
         }
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
-for(int i=0;i<8;i++) {
-    for(int j=0;j<8;j++) {
 
-        if(board[i][j].getPosition()==position) {
-            if(board[i][j].getColor()==color)
-               board[i][j].move(pomocna);
-            else
-                board[i][j].PostaviNaNeaktivno();
 
-        }
-    }
-}
+            if(board[position.charAt(1)-1][position.charAt(0)-65].getColor()==color)
+               board[rednadjene][kolonanadjene].move(pomocna);           //
+            else if(board[position.charAt(1)-1][position.charAt(0)-65].getPosition()=="" || board[position.charAt(1)-1][position.charAt(0)-65].getColor()!=color){
+                int red=position.charAt(1)-1; int kolona=position.charAt(0)-65;
+
+                if(board[rednadjene][kolonanadjene] instanceof Bishop)
+                    board[red][kolona]= new Bishop(board[red][kolona].getPosition(), board[red][kolona].getColor()); //azuriranje nove pozicije figure u 2D nizu
+                if(board[rednadjene][kolonanadjene] instanceof King)
+                    board[red][kolona]= new King(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                if(board[rednadjene][kolonanadjene] instanceof Queen)
+                    board[red][kolona]= new Queen(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                if(board[rednadjene][kolonanadjene] instanceof Knight)
+                    board[red][kolona]= new Knight(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                if(board[rednadjene][kolonanadjene] instanceof Pawn)
+                    board[red][kolona]= new Pawn(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                if(board[rednadjene][kolonanadjene] instanceof Rook)
+                    board[red][kolona]= new Rook(board[red][kolona].getPosition(), board[red][kolona].getColor());
+
+                board[rednadjene][kolonanadjene].PostaviNaNeaktivno(); // ostavi prazno mjesto gdje je prethodno bila figura
+
+            }
+
+
+
 
 
 
