@@ -121,11 +121,36 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
 
 
-
-
-
    boolean isCheck ( ChessPiece.Color color) {
-        return false;
+        String kraljevapozicija="";
+      vanjska:  for(int i=0;i<8;i++) {
+            for(int j=0;j<8;j++) {
+                if(board[i][j] instanceof King) {
+                    kraljevapozicija = board[i][j].getPosition(); //uzimamo poziciju na kojoj se nalazi kralj
+                    break vanjska;
+                }
+            }
+        }
+        int brojacfigura=0, brojacizuzetaka=0;
+        for(int i=0;i<8;i++) {
+           for(int j=0;j<8;j++) {
+               if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color) {
+                   brojacfigura++;
+                   try {
+                       board[i][j].move(kraljevapozicija);
+                   }
+
+
+                   catch(Exception e) {
+                       brojacizuzetaka++;
+
+                   }
+                   if(brojacfigura!=brojacizuzetaka) return true;
+               }
+
+           }
+       }
+            return false;
    }
 
 
