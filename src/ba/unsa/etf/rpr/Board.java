@@ -2,11 +2,12 @@ package ba.unsa.etf.rpr;
 
 
 
-public class Board {
+public class Board implements Cloneable{
 
     ChessPiece [][] board= new ChessPiece[8][8];
 
     Board (){
+
         board[0][0]=new Rook("A8",ChessPiece.Color.BLACK);
         board[0][1]=new Knight("B8",ChessPiece.Color.BLACK);
         board[0][2]=new Bishop("C8",ChessPiece.Color.BLACK);
@@ -29,9 +30,31 @@ public class Board {
         board[7][7]=new Rook("H2",ChessPiece.Color.WHITE);
         for(int i=0;i<8;i++) {
             board[6][i]=new Pawn('A'+i+"2",ChessPiece.Color.WHITE);
+    }
+    }
+
+   void move (Class type, ChessPiece.Color color, String position) {
+
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<8;j++) {
+             if(board[i][j].getClass()==type && board[i][j].getPosition()!="") {
+                 String pomocna=board[i][j].getPosition();
+
+try {
+
+    board[i][j].move(position);
+
+}
+catch( Exception e) {
+
+                 }
+             }
+
+            }
         }
 
 
-    }
+   }
+
 
 }
