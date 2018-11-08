@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr;
 
-public abstract class ChessPiece {
+public abstract class ChessPiece implements Cloneable{
 
     public static enum Color {WHITE, BLACK}
 
@@ -17,11 +17,13 @@ public abstract class ChessPiece {
     }
 
 
-
     void move(String position) {
 
     }
 
+    void PostaviNaNeaktivno() {
+        this.position="";
+    }
 
 
 }
