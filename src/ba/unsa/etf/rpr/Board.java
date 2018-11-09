@@ -31,6 +31,14 @@ public class Board implements Cloneable{
         for(int i=0;i<8;i++) {
             board[6][i]=new Pawn((char)('A'+i)+"2",ChessPiece.Color.WHITE);
     }
+
+    for(int i=2;i<6;i++) {
+        for(int j=0;j<8;j++) {
+            board[i][j]=new PraznoPolje();
+        }
+    }
+
+
     }
 
    void move (Class type, ChessPiece.Color color, String position) {
@@ -58,10 +66,10 @@ brojaczaizuzetke++;
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
-            if(board[position.charAt(1)-1][position.charAt(0)-65].getColor()==color)
+            if(board[position.charAt(1)-48][position.charAt(0)-65].getColor()==color)
                board[rednadjene][kolonanadjene].move(pomocna);           //
-            else if(board[position.charAt(1)-1][position.charAt(0)-65].getPosition()=="" || board[position.charAt(1)-1][position.charAt(0)-65].getColor()!=color){
-                int red=position.charAt(1)-1; int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
+            else if(board[position.charAt(1)-48][position.charAt(0)-65].getPosition()=="" || board[position.charAt(1)-48][position.charAt(0)-65].getColor()!=color){
+                int red=position.charAt(1)-48; int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
 
                 if(board[rednadjene][kolonanadjene] instanceof Bishop)
                     board[red][kolona]= new Bishop(board[red][kolona].getPosition(), board[red][kolona].getColor()); //azuriranje nove pozicije figure u 2D nizu
@@ -84,7 +92,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
     void move(String oldPosition, String newPosition){
 
 
-                   int rednadjene=oldPosition.charAt(1)-1;
+                   int rednadjene=oldPosition.charAt(1)-48;
                    int kolonanadjene=oldPosition.charAt(0)-65;
                   if(board[rednadjene][kolonanadjene].getPosition()=="") throw new IllegalArgumentException(); //ako na oldPosition nema figure
                         try {
@@ -96,7 +104,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                         }
 
 
-        int redodredisne=newPosition.charAt(1)-1; int kolonaodredisne=newPosition.charAt(0)-65;
+        int redodredisne=newPosition.charAt(1)-48; int kolonaodredisne=newPosition.charAt(0)-65;
               if(board[redodredisne][kolonaodredisne].getColor()==board[rednadjene][kolonanadjene].getColor())
                   board[rednadjene][kolonanadjene].move(newPosition);
 
