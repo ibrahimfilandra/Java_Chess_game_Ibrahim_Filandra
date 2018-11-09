@@ -66,9 +66,9 @@ brojaczaizuzetke++;
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
-            if(board[position.charAt(1)-48][position.charAt(0)-65].getColor()==color)
+            if( !(board[position.charAt(1)-48][position.charAt(0)-65] instanceof PraznoPolje) &&  board[position.charAt(1)-48][position.charAt(0)-65].getColor()==color)
                board[rednadjene][kolonanadjene].move(pomocna);           //
-            else if(board[position.charAt(1)-48][position.charAt(0)-65].getPosition()=="" || board[position.charAt(1)-48][position.charAt(0)-65].getColor()!=color){
+            else if(board[position.charAt(1)-48][position.charAt(0)-65] instanceof PraznoPolje || board[position.charAt(1)-48][position.charAt(0)-65].getColor()!=color){
                 int red=position.charAt(1)-48; int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
 
                 if(board[rednadjene][kolonanadjene] instanceof Bishop)
@@ -84,7 +84,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                 if(board[rednadjene][kolonanadjene] instanceof Rook)
                     board[red][kolona]= new Rook(board[red][kolona].getPosition(), board[red][kolona].getColor());
 
-                board[rednadjene][kolonanadjene].PostaviNaNeaktivno(); // ostavi prazno mjesto gdje je prethodno bila figura
+                board[rednadjene][kolonanadjene]=new PraznoPolje(); // ostavi prazno mjesto gdje je prethodno bila figura
 
             }
 
