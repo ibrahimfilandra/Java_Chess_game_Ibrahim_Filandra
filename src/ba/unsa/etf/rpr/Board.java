@@ -51,7 +51,9 @@ public class Board implements Cloneable{
 brojaczafigure++;
 try {
 
-    board[i][j].move(position);
+    if(board[i][j] instanceof Pawn && board[indeksiraj(position.charAt(1))][position.charAt(0)-65].getColor()!=color && !(board[indeksiraj(position.charAt(1))][position.charAt(0)-65] instanceof PraznoPolje))
+        ((Pawn)(board[i][j])).jedi(position);
+  else  board[i][j].move(position);
 rednadjene=i; kolonanadjene=j;
 
 break prva;
@@ -142,7 +144,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
         int brojacfigura=0, brojacizuzetaka=0;
         for(int i=0;i<8;i++) {
            for(int j=0;j<8;j++) {
-               if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color) {
+               if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color && !(board[i][j] instanceof PraznoPolje)) {
                    brojacfigura++;
                    try {
                        board[i][j].move(kraljevapozicija);
