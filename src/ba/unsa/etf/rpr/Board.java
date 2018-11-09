@@ -20,14 +20,14 @@ public class Board implements Cloneable{
         for(int i=0;i<8;i++) {
             board[1][i]=new Pawn('A'+i+"7",ChessPiece.Color.BLACK);
         }
-        board[7][0]=new Rook("A2",ChessPiece.Color.WHITE);
-        board[7][1]=new Knight("B2",ChessPiece.Color.WHITE);
-        board[7][2]=new Bishop("C2",ChessPiece.Color.WHITE);
-        board[7][3]=new Queen("D2",ChessPiece.Color.WHITE);
-        board[7][4]=new King("E2",ChessPiece.Color.WHITE);
-        board[7][5]=new Bishop("F2",ChessPiece.Color.WHITE);
-        board[7][6]=new Knight("G2",ChessPiece.Color.WHITE);
-        board[7][7]=new Rook("H2",ChessPiece.Color.WHITE);
+        board[7][0]=new Rook("A1",ChessPiece.Color.WHITE);
+        board[7][1]=new Knight("B1",ChessPiece.Color.WHITE);
+        board[7][2]=new Bishop("C1",ChessPiece.Color.WHITE);
+        board[7][3]=new Queen("D1",ChessPiece.Color.WHITE);
+        board[7][4]=new King("E1",ChessPiece.Color.WHITE);
+        board[7][5]=new Bishop("F1",ChessPiece.Color.WHITE);
+        board[7][6]=new Knight("G1",ChessPiece.Color.WHITE);
+        board[7][7]=new Rook("H1",ChessPiece.Color.WHITE);
         for(int i=0;i<8;i++) {
             board[6][i]=new Pawn('A'+i+"2",ChessPiece.Color.WHITE);
     }
