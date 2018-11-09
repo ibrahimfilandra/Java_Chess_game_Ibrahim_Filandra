@@ -20,14 +20,14 @@ public class King extends ChessPiece {
     @Override
    public void move(String position) {
 
-
+        if(position.length()!=2) throw new IllegalArgumentException();
 if(position.charAt(0)<'a'){
     if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();
 }
 if(position.charAt(0)>'h')throw new IllegalArgumentException();
 
         if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException();
-        if(position.length()!=2) throw new IllegalArgumentException();
+
 
         if(abs(this.getPosition().charAt(1)-position.charAt(1))>1) throw new IllegalChessMoveException();
         if(abs(this.getPosition().charAt(0)-position.charAt(0))>1  && abs(this.getPosition().charAt(0) -position.charAt(0))!=33
