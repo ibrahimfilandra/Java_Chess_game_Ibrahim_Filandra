@@ -46,7 +46,7 @@ public class Pawn extends ChessPiece{
 
         if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException();
 
-if(position.charAt(1)-this.position.charAt(0)==1 && (abs(position.charAt(0)-this.position.charAt(0))==1 || abs( position.charAt(1)-this.position.charAt(1))==31 ||
+if(position.charAt(1)-this.position.charAt(1)==1 && (abs(position.charAt(0)-this.position.charAt(0))==1 || abs( position.charAt(1)-this.position.charAt(1))==31 ||
         abs( position.charAt(1)-this.position.charAt(1))==33 ) ) this.position=position;
 else throw new IllegalChessMoveException();
     }
