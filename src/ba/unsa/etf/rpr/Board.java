@@ -66,23 +66,23 @@ brojaczaizuzetke++;
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
-            if( !(board[position.charAt(1)-48][position.charAt(0)-65] instanceof PraznoPolje) &&  board[position.charAt(1)-48][position.charAt(0)-65].getColor()==color)
+            if( !(board[indeksiraj(position.charAt(1))][position.charAt(0)-65] instanceof PraznoPolje) &&  board[indeksiraj(position.charAt(1))][position.charAt(0)-65].getColor()==color)
                board[rednadjene][kolonanadjene].move(pomocna);           //
-            else if(board[position.charAt(1)-48][position.charAt(0)-65] instanceof PraznoPolje || board[position.charAt(1)-48][position.charAt(0)-65].getColor()!=color){
-                int red=position.charAt(1)-48; int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
+            else if(board[indeksiraj(position.charAt(1))][position.charAt(0)-65] instanceof PraznoPolje || board[indeksiraj(position.charAt(1))][position.charAt(0)-65].getColor()!=color){
+                int red=indeksiraj(position.charAt(1)); int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
 
                 if(board[rednadjene][kolonanadjene] instanceof Bishop)
-                    board[red][kolona]= new Bishop(board[red][kolona].getPosition(), board[red][kolona].getColor()); //azuriranje nove pozicije figure u 2D nizu
+                    board[red][kolona]= new Bishop(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor()); //azuriranje nove pozicije figure u 2D nizu
                 if(board[rednadjene][kolonanadjene] instanceof King)
-                    board[red][kolona]= new King(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                    board[red][kolona]= new King(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
                 if(board[rednadjene][kolonanadjene] instanceof Queen)
-                    board[red][kolona]= new Queen(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                    board[red][kolona]= new Queen(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
                 if(board[rednadjene][kolonanadjene] instanceof Knight)
-                    board[red][kolona]= new Knight(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                    board[red][kolona]= new Knight(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
                 if(board[rednadjene][kolonanadjene] instanceof Pawn)
-                    board[red][kolona]= new Pawn(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                    board[red][kolona]= new Pawn(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
                 if(board[rednadjene][kolonanadjene] instanceof Rook)
-                    board[red][kolona]= new Rook(board[red][kolona].getPosition(), board[red][kolona].getColor());
+                    board[red][kolona]= new Rook(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
 
                 board[rednadjene][kolonanadjene]=new PraznoPolje(); // ostavi prazno mjesto gdje je prethodno bila figura
 
@@ -92,7 +92,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
     void move(String oldPosition, String newPosition){
 
 
-                   int rednadjene=oldPosition.charAt(1)-48;
+                   int rednadjene=indeksiraj(oldPosition.charAt(1));
                    int kolonanadjene=oldPosition.charAt(0)-65;
                   if(board[rednadjene][kolonanadjene].getPosition()=="") throw new IllegalArgumentException(); //ako na oldPosition nema figure
                         try {
@@ -104,7 +104,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                         }
 
 
-        int redodredisne=newPosition.charAt(1)-48; int kolonaodredisne=newPosition.charAt(0)-65;
+        int redodredisne=indeksiraj(newPosition.charAt(1)); int kolonaodredisne=newPosition.charAt(0)-65;
               if(board[redodredisne][kolonaodredisne].getColor()==board[rednadjene][kolonanadjene].getColor())
                   board[rednadjene][kolonanadjene].move(newPosition);
 
@@ -161,7 +161,17 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
             return false;
    }
 
+int indeksiraj(char broj) {
 
+if(broj=='7')return 1;
+if(broj=='6')return 2;
+if (broj=='5')return 3;
+if(broj=='4') return 4;
+if(broj=='3')return 5;
+if(broj=='2')return 6;
+if(broj=='1')return 7;
+return 0;
+}
 
 
 }
