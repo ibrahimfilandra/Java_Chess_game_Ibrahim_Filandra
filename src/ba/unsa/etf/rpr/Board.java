@@ -61,7 +61,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
             if(board[position.charAt(1)-1][position.charAt(0)-65].getColor()==color)
                board[rednadjene][kolonanadjene].move(pomocna);           //
             else if(board[position.charAt(1)-1][position.charAt(0)-65].getPosition()=="" || board[position.charAt(1)-1][position.charAt(0)-65].getColor()!=color){
-                int red=position.charAt(1)-1; int kolona=position.charAt(0)-65;
+                int red=position.charAt(1)-1; int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
 
                 if(board[rednadjene][kolonanadjene] instanceof Bishop)
                     board[red][kolona]= new Bishop(board[red][kolona].getPosition(), board[red][kolona].getColor()); //azuriranje nove pozicije figure u 2D nizu
@@ -125,7 +125,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
         String kraljevapozicija="";
       vanjska:  for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
-                if(board[i][j] instanceof King) {
+                if(board[i][j] instanceof King && board[i][j].getColor()==color) {
                     kraljevapozicija = board[i][j].getPosition(); //uzimamo poziciju na kojoj se nalazi kralj
                     break vanjska;
                 }
