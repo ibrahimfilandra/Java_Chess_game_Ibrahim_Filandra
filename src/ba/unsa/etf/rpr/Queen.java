@@ -18,7 +18,7 @@ public class Queen extends ChessPiece {
     }
 
 
-    void Move(String position) {
+    void move(String position) {
         if(position.charAt(0)<'a'){
             if(position.charAt(0)<'A' || position.charAt(0)>'H')throw new IllegalArgumentException();
         }
