@@ -147,7 +147,8 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color && !(board[i][j] instanceof PraznoPolje)) {
                    brojacfigura++;
                    try {
-                       board[i][j].move(kraljevapozicija);
+                       if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
+                      else board[i][j].move(kraljevapozicija);
                    }
 
 
