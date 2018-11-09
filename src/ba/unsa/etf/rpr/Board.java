@@ -38,7 +38,7 @@ public class Board implements Cloneable{
        String pomocna=""; int rednadjene=0, kolonanadjene=0;
     prva:    for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
-             if(board[i][j].getClass()==type && board[i][j].getPosition()!="") {
+             if(board[i][j].getClass()==type && board[i][j].getColor()==color) {
                 pomocna=board[i][j].getPosition();
 brojaczafigure++;
 try {
