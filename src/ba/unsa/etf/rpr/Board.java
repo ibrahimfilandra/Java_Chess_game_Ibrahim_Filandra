@@ -18,7 +18,7 @@ public class Board implements Cloneable{
         board[0][7]=new Rook("H8",ChessPiece.Color.BLACK);
 
         for(int i=0;i<8;i++) {
-            board[1][i]=new Pawn('A'+i+"7",ChessPiece.Color.BLACK);
+            board[1][i]=new Pawn((char)(i+'A')+"7",ChessPiece.Color.BLACK);
         }
         board[7][0]=new Rook("A1",ChessPiece.Color.WHITE);
         board[7][1]=new Knight("B1",ChessPiece.Color.WHITE);
@@ -29,7 +29,7 @@ public class Board implements Cloneable{
         board[7][6]=new Knight("G1",ChessPiece.Color.WHITE);
         board[7][7]=new Rook("H1",ChessPiece.Color.WHITE);
         for(int i=0;i<8;i++) {
-            board[6][i]=new Pawn('A'+i+"2",ChessPiece.Color.WHITE);
+            board[6][i]=new Pawn((char)('A'+i)+"2",ChessPiece.Color.WHITE);
     }
     }
 
