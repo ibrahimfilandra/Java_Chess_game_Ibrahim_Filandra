@@ -5,7 +5,8 @@ import static ba.unsa.etf.rpr.ChessPiece.Color.WHITE;
 public class PraznoPolje extends ChessPiece {
 
    PraznoPolje() {
-     super();
+     this.position=position;
+     this.color=WHITE;
    }
 
 
