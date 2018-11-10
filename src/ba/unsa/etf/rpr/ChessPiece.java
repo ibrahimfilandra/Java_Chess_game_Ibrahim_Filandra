@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr;
 
-public abstract class ChessPiece implements Cloneable{
+public abstract class ChessPiece implements Cloneable {
 
     public static enum Color {WHITE, BLACK}
 
@@ -17,8 +17,8 @@ public abstract class ChessPiece implements Cloneable{
         return color;
     }
 
-    void movebackwards(){
-        position=previous;
+    void movebackwards() {
+        position = previous;
     }
 
     void move(String position) {
@@ -27,9 +27,9 @@ public abstract class ChessPiece implements Cloneable{
 
 
     ChessPiece() {
-        this.position="";
-        this.color=Color.WHITE;
-        this.previous="";
+        this.position = "";
+        this.color = Color.WHITE;
+        this.previous = "";
     }
 
 }

@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr;
 import java.util.Scanner;
 
 
-
 public class Program {
     public static void main(String[] args) {
 
@@ -64,13 +63,12 @@ public class Program {
                         } else ispravan = false;
                     } else ispravan = false;
 
-                }
-                catch(Exception e) {
-                    ispravan=false;
+                } catch (Exception e) {
+                    ispravan = false;
                 }
                 if (!ispravan) System.out.println("Illegal move");
             } while (!ispravan);
-            if(b.isCheck(ChessPiece.Color.WHITE)) System.out.println("White is in check");
+            if (b.isCheck(ChessPiece.Color.WHITE)) System.out.println("White is in check");
 
 
             do {
@@ -123,9 +121,8 @@ public class Program {
                         } else ispravan = false;
                     } else ispravan = false;
 
-                }
-                catch(Exception e) {
-                    ispravan=false;
+                } catch (Exception e) {
+                    ispravan = false;
                 }
                 if (!ispravan) System.out.println("Illegal move");
             } while (!ispravan);
