@@ -170,7 +170,8 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
    }
     void move(String oldPosition, String newPosition){
 
-
+        oldPosition=Character.toUpperCase(oldPosition.charAt(0)) + oldPosition.substring(1);
+        newPosition=Character.toUpperCase(newPosition.charAt(0)) + newPosition.substring(1);
                    int rednadjene=indeksiraj(oldPosition.charAt(1));
                    int kolonanadjene=oldPosition.charAt(0)-65;
         int redodredisne=indeksiraj(newPosition.charAt(1));
