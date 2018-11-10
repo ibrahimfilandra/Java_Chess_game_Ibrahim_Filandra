@@ -13,6 +13,7 @@ public class Pawn extends ChessPiece{
         if(position.length()!=2) throw new IllegalArgumentException(); //Finalna provjera ispravnosti formata
         this.position=position;
         this.color=color;
+        this.previous=position;
     }
 
     void move(String position) {
@@ -34,7 +35,7 @@ public class Pawn extends ChessPiece{
        else if   ( (position.charAt(0)==this.position.charAt(0) || abs(this.position.charAt(0)-position.charAt(0))==32)&& position.charAt(1)-this.position.charAt(1)==1 )
          this.position=position;
           else throw new IllegalChessMoveException(); //samo se moze kretati naprijed za 1 polje ili 2 ako mu je prvi potez
-         this.previous=position;
+
     }
 
     void jedi(String position) {
