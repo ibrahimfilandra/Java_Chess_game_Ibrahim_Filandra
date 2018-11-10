@@ -48,12 +48,12 @@ public class Board implements Cloneable{
            int razlikaredova=position1.charAt(1)-position2.charAt(1);
            if(abs(razlikaredova)==1) return false;
            if(razlikaredova>0){
-               for(int i=0;i<razlikaredova;i++)
+               for(int i=1;i<razlikaredova;i++)
                    if(!(board[indeksiraj(position1.charAt(1))+i][position1.charAt(0)-65] instanceof PraznoPolje))
                        return true;
            }
            if(razlikaredova<0){
-               for(int i=0;i<abs(razlikaredova);i++)
+               for(int i=1;i<abs(razlikaredova);i++)
                    if(!(board[indeksiraj(position1.charAt(1))-i][position1.charAt(0)-65] instanceof PraznoPolje))
                        return true;
            }
@@ -64,12 +64,12 @@ if(position1.charAt(1)==position2.charAt(1)) {  //kretanje horizontalno
     int razlikakolona=position1.charAt(0)-position2.charAt(0);
     if(abs(razlikakolona)==1)return false;
     if(razlikakolona>0) {
-        for(int i=0;i<razlikakolona;i++)
+        for(int i=1;i<razlikakolona;i++)
         if(!(   board[indeksiraj(position1.charAt(1))][position1.charAt(0)-65-i]   instanceof PraznoPolje  ))
             return true;
     }
     if(razlikakolona<0){
-        for(int i=0;i<abs(razlikakolona);i++)
+        for(int i=1;i<abs(razlikakolona);i++)
             if(!(   board[indeksiraj(position1.charAt(1))][position1.charAt(0)-65+i]   instanceof PraznoPolje  ))
                 return true;
     }
@@ -108,7 +108,8 @@ brojaczaizuzetke++;
         }
 
 
-
+if( !(board[rednadjene][kolonanadjene] instanceof Knight) && illegaljump(pomocna,position))
+    throw new IllegalChessMoveException();
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
@@ -147,6 +148,9 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                             if(board[rednadjene][kolonanadjene] instanceof Pawn && board[redodredisne][kolonaodredisne].getColor()!= board[rednadjene][kolonanadjene].getColor() && !(board[redodredisne][kolonaodredisne] instanceof PraznoPolje))
                                 ((Pawn) (board[rednadjene][kolonanadjene])).jedi(newPosition);
                              else   board[rednadjene][kolonanadjene].move(newPosition);
+                             if(!(board[rednadjene][kolonanadjene] instanceof Knight) && illegaljump(oldPosition, newPosition))
+                                 throw new IllegalChessMoveException();
+                             board[rednadjene][kolonanadjene].movebackwards();
                         }
 
                         catch(Exception e){
@@ -191,15 +195,16 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
             }
         }
         int brojacfigura=0, brojacizuzetaka=0;
-
+String pomocna="";
         for(int i=0;i<8;i++) {
            for(int j=0;j<8;j++) {
                if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color && !(board[i][j] instanceof PraznoPolje)) {
                    brojacfigura++;
                    try {
-
+                               pomocna=board[i][j].getPosition();
                        if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
                       else board[i][j].move(kraljevapozicija);
+
                      board[i][j].movebackwards();
                    }
 
