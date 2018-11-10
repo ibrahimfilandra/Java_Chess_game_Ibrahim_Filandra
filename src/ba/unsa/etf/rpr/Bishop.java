@@ -12,7 +12,7 @@ public class Bishop extends ChessPiece {
         if(position.charAt(1)<'1'||position.charAt(1)>'8') throw new IllegalArgumentException(); //je li neispravno naveden red
         if(position.length()!=2) throw new IllegalArgumentException(); //Finalna provjera ispravnosti formata
 
-        this.position=position; this.color=color;
+        this.position=position; this.color=color; this.previous=position;
     }
 
     public void move(String position) {
