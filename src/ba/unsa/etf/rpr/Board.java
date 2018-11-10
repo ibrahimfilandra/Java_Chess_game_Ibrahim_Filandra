@@ -75,7 +75,38 @@ if(position1.charAt(1)==position2.charAt(1)) {  //kretanje horizontalno
     }
 }
 
+        if( abs(position1.charAt(1)-position2.charAt(1)) == abs(position1.charAt(0)-position2.charAt(0))) {  //kretanje dijagonalno
 
+            int razlikaredova=position1.charAt(1)-position2.charAt(1);
+            int razlikakolona=position1.charAt(0)-position2.charAt(0);
+            if(abs(razlikaredova)==1) return false;  //ili ako abs(razlikakolona)==1, svejedno
+
+            if(razlikaredova>0 && razlikakolona>0) {
+                for(int i=1;i<abs(razlikaredova);i++)
+                    if(  !(board[indeksiraj(position1.charAt(1))+i][position1.charAt(0)-65-i] instanceof PraznoPolje  ))
+                        return true;
+            }
+
+            if(razlikaredova>0 && razlikakolona<0) {
+                for(int i=1;i<abs(razlikaredova);i++)
+                    if(  !(board[indeksiraj(position1.charAt(1))+i][position1.charAt(0)-65+i] instanceof PraznoPolje  ))
+                        return true;
+            }
+
+            if(razlikaredova<0 && razlikakolona<0) {
+                for(int i=1;i<abs(razlikaredova);i++)
+                    if(  !(board[indeksiraj(position1.charAt(1))-i][position1.charAt(0)-65+i] instanceof PraznoPolje  ))
+                        return true;
+            }
+
+            if(razlikaredova<0 && razlikakolona>0) {
+                for(int i=1;i<abs(razlikaredova);i++)
+                    if(  !(board[indeksiraj(position1.charAt(1))-i][position1.charAt(0)-65-i] instanceof PraznoPolje  ))
+                        return true;
+            }
+
+
+        }
 
 
 return false;
