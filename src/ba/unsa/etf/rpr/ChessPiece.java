@@ -7,6 +7,7 @@ public abstract class ChessPiece implements Cloneable{
     ;
     String position;
     Color color;
+    String previous;
 
     String getPosition() {
         return position;
@@ -16,14 +17,14 @@ public abstract class ChessPiece implements Cloneable{
         return color;
     }
 
+    void movebackwards(){
+        position=previous;
+    }
 
     void move(String position) {
 
     }
 
-    void PostaviNaNeaktivno() {
-        this.position="";
-    }
 
     ChessPiece() {
         this.position="";
