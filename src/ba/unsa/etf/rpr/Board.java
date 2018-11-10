@@ -34,7 +34,7 @@ public class Board implements Cloneable{
 
     for(int i=2;i<6;i++) {
         for(int j=0;j<8;j++) {
-            board[i][j]=new PraznoPolje();
+            board[i][j]=new PraznoPolje( (char)('A'+j)+"" +indeksiraj((char)('0'+i)) );
         }
     }
 
@@ -86,7 +86,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                 if(board[rednadjene][kolonanadjene] instanceof Rook)
                     board[red][kolona]= new Rook(board[rednadjene][kolonanadjene].getPosition(), board[rednadjene][kolonanadjene].getColor());
 
-                board[rednadjene][kolonanadjene]=new PraznoPolje(); // ostavi prazno mjesto gdje je prethodno bila figura
+                board[rednadjene][kolonanadjene]=new PraznoPolje(  (char)(kolonanadjene+'A')+""+ (char)(indeksiraj((char)(rednadjene+'0')))  ); // ostavi prazno mjesto gdje je prethodno bila figura
 
             }
 
@@ -116,19 +116,19 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
               else {
                   if (board[rednadjene][kolonanadjene] instanceof Bishop)
-                      board[redodredisne][kolonaodredisne] = new Bishop(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new Bishop(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
                   if (board[rednadjene][kolonanadjene] instanceof King)
-                      board[redodredisne][kolonaodredisne] = new King(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new King(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
                   if (board[rednadjene][kolonanadjene] instanceof Queen)
-                      board[redodredisne][kolonaodredisne] = new Queen(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new Queen(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
                   if (board[rednadjene][kolonanadjene] instanceof Knight)
-                      board[redodredisne][kolonaodredisne] = new Knight(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new Knight(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
                   if (board[rednadjene][kolonanadjene] instanceof Pawn)
-                      board[redodredisne][kolonaodredisne] = new Pawn(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new Pawn(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
                   if (board[rednadjene][kolonanadjene] instanceof Rook)
-                      board[redodredisne][kolonaodredisne] = new Rook(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                      board[redodredisne][kolonaodredisne] = new Rook(board[redodredisne][kolonaodredisne].getPosition(), board[rednadjene][kolonanadjene].getColor());
 
-                  board[rednadjene][kolonanadjene]=new PraznoPolje();
+                  board[rednadjene][kolonanadjene]=new PraznoPolje( (char)(kolonanadjene+'A')+""+ indeksiraj((char)(rednadjene+'0'))  );
               }
 
 
@@ -147,13 +147,16 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
             }
         }
         int brojacfigura=0, brojacizuzetaka=0;
+
         for(int i=0;i<8;i++) {
            for(int j=0;j<8;j++) {
                if(board[i][j].getPosition()!="" && board[i][j].getColor()!= color && !(board[i][j] instanceof PraznoPolje)) {
                    brojacfigura++;
                    try {
+
                        if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
                       else board[i][j].move(kraljevapozicija);
+
                    }
 
 
