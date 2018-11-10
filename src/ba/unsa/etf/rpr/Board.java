@@ -69,7 +69,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
 
             if( !(board[indeksiraj(position.charAt(1))][position.charAt(0)-65] instanceof PraznoPolje) &&  board[indeksiraj(position.charAt(1))][position.charAt(0)-65].getColor()==color)
-               board[rednadjene][kolonanadjene].move(pomocna);           //
+               board[rednadjene][kolonanadjene].movebackwards();           //
             else if(board[indeksiraj(position.charAt(1))][position.charAt(0)-65] instanceof PraznoPolje || board[indeksiraj(position.charAt(1))][position.charAt(0)-65].getColor()!=color){
                 int red=indeksiraj(position.charAt(1)); int kolona=position.charAt(0)-65; //koordinate odredisnog polja u 2d nizu
 
@@ -112,7 +112,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
 
               if(board[redodredisne][kolonaodredisne].getColor()==board[rednadjene][kolonanadjene].getColor() && !(board[redodredisne][kolonaodredisne] instanceof PraznoPolje))
-                  board[rednadjene][kolonanadjene].move(newPosition);
+                  board[rednadjene][kolonanadjene].movebackwards();
 
               else {
                   if (board[rednadjene][kolonanadjene] instanceof Bishop)
@@ -156,7 +156,7 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
                        if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
                       else board[i][j].move(kraljevapozicija);
-
+                     board[i][j].movebackwards();
                    }
 
 
