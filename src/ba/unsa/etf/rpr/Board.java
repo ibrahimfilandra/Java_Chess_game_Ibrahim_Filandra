@@ -205,6 +205,8 @@ String pomocna="";
                        if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
                       else board[i][j].move(kraljevapozicija);
 
+                      if(!(board[i][j] instanceof Knight) && illegaljump(pomocna, kraljevapozicija))
+                          throw new IllegalChessMoveException();
                      board[i][j].movebackwards();
                    }
 
