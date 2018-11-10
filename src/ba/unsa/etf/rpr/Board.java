@@ -78,7 +78,6 @@ if(position1.charAt(1)==position2.charAt(1)) {  //kretanje horizontalno
 
 
 
-
 return false;
     }
 
@@ -205,9 +204,11 @@ String pomocna="";
                        if(board[i][j] instanceof Pawn) ((Pawn)board[i][j]).jedi(kraljevapozicija);
                       else board[i][j].move(kraljevapozicija);
 
-                      if(!(board[i][j] instanceof Knight) && illegaljump(pomocna, kraljevapozicija))
+                      if(!(board[i][j] instanceof Knight) && illegaljump(pomocna, kraljevapozicija)) {
+                          board[i][j].movebackwards();
                           throw new IllegalChessMoveException();
-                     board[i][j].movebackwards();
+                      }
+                      board[i][j].movebackwards();
                    }
 
 
