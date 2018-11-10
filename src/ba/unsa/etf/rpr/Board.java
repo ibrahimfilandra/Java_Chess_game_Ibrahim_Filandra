@@ -114,6 +114,8 @@ return false;
 
    void move (Class type, ChessPiece.Color color, String position) {
        int brojaczafigure=0,brojaczaizuzetke=0;
+      position=Character.toUpperCase(position.charAt(0)) + position.substring(1);
+
        String pomocna=""; int rednadjene=0, kolonanadjene=0;
     prva:    for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
