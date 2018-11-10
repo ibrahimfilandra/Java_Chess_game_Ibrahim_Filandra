@@ -60,6 +60,21 @@ public class Board implements Cloneable{
 
        }
 
+if(position1.charAt(1)==position2.charAt(1)) {  //kretanje horizontalno
+    int razlikakolona=position1.charAt(0)-position2.charAt(0);
+    if(abs(razlikakolona)==1)return false;
+    if(razlikakolona>0) {
+        for(int i=0;i<razlikakolona;i++)
+        if(!(   board[indeksiraj(position1.charAt(1))][position1.charAt(0)-65-i]   instanceof PraznoPolje  ))
+            return true;
+    }
+    if(razlikakolona<0){
+        for(int i=0;i<abs(razlikakolona);i++)
+            if(!(   board[indeksiraj(position1.charAt(1))][position1.charAt(0)-65+i]   instanceof PraznoPolje  ))
+                return true;
+    }
+}
+
 
 
 
