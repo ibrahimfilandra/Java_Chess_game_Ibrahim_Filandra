@@ -14,7 +14,7 @@ public class Queen extends ChessPiece {
         if(position.length()!=2) throw new IllegalArgumentException(); //Finalna provjera ispravnosti formata
         this.position=position;
         this.color=color;
-
+this.previous=position;
     }
 
 
