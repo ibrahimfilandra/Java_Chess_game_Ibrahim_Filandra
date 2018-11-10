@@ -96,9 +96,13 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
 
                    int rednadjene=indeksiraj(oldPosition.charAt(1));
                    int kolonanadjene=oldPosition.charAt(0)-65;
-                  if(board[rednadjene][kolonanadjene].getPosition()=="") throw new IllegalArgumentException(); //ako na oldPosition nema figure
+        int redodredisne=indeksiraj(newPosition.charAt(1));
+        int kolonaodredisne=newPosition.charAt(0)-65;
+                  if(board[rednadjene][kolonanadjene] instanceof PraznoPolje) throw new IllegalArgumentException(); //ako na oldPosition nema figure
                         try {
-                                board[rednadjene][kolonanadjene].move(newPosition);
+                            if(board[rednadjene][kolonanadjene] instanceof Pawn && board[redodredisne][kolonaodredisne].getColor()!= board[rednadjene][kolonanadjene].getColor() && !(board[redodredisne][kolonaodredisne] instanceof PraznoPolje))
+                                ((Pawn) (board[rednadjene][kolonanadjene])).jedi(newPosition);
+                             else   board[rednadjene][kolonanadjene].move(newPosition);
                         }
 
                         catch(Exception e){
@@ -106,25 +110,26 @@ if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //a
                         }
 
 
-        int redodredisne=indeksiraj(newPosition.charAt(1)); int kolonaodredisne=newPosition.charAt(0)-65;
-              if(board[redodredisne][kolonaodredisne].getColor()==board[rednadjene][kolonanadjene].getColor())
+
+              if(board[redodredisne][kolonaodredisne].getColor()==board[rednadjene][kolonanadjene].getColor() && !(board[redodredisne][kolonaodredisne] instanceof PraznoPolje))
                   board[rednadjene][kolonanadjene].move(newPosition);
 
-        if(board[rednadjene][kolonanadjene] instanceof Bishop)
-            board[redodredisne][kolonaodredisne]= new Bishop(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
-        if(board[rednadjene][kolonanadjene] instanceof King)
-            board[redodredisne][kolonaodredisne]= new King(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
-        if(board[rednadjene][kolonanadjene] instanceof Queen)
-            board[redodredisne][kolonaodredisne]= new Queen(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
-        if(board[rednadjene][kolonanadjene] instanceof Knight)
-            board[redodredisne][kolonaodredisne]= new Knight(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
-        if(board[rednadjene][kolonanadjene] instanceof Pawn)
-            board[redodredisne][kolonaodredisne]= new Pawn(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
-        if(board[rednadjene][kolonanadjene] instanceof Rook)
-            board[redodredisne][kolonaodredisne]= new Rook(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+              else {
+                  if (board[rednadjene][kolonanadjene] instanceof Bishop)
+                      board[redodredisne][kolonaodredisne] = new Bishop(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                  if (board[rednadjene][kolonanadjene] instanceof King)
+                      board[redodredisne][kolonaodredisne] = new King(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                  if (board[rednadjene][kolonanadjene] instanceof Queen)
+                      board[redodredisne][kolonaodredisne] = new Queen(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                  if (board[rednadjene][kolonanadjene] instanceof Knight)
+                      board[redodredisne][kolonaodredisne] = new Knight(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                  if (board[rednadjene][kolonanadjene] instanceof Pawn)
+                      board[redodredisne][kolonaodredisne] = new Pawn(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
+                  if (board[rednadjene][kolonanadjene] instanceof Rook)
+                      board[redodredisne][kolonaodredisne] = new Rook(board[redodredisne][kolonaodredisne].getPosition(), board[redodredisne][kolonaodredisne].getColor());
 
-        board[rednadjene][kolonanadjene].PostaviNaNeaktivno();
-
+                  board[rednadjene][kolonanadjene]=new PraznoPolje();
+              }
 
 
     }
