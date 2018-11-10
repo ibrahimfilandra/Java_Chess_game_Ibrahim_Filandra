@@ -41,6 +41,12 @@ public class Board implements Cloneable{
 
     }
 
+    boolean illegaljump(String position1, String position2) {
+
+
+
+    }
+
    void move (Class type, ChessPiece.Color color, String position) {
        int brojaczafigure=0,brojaczaizuzetke=0;
        String pomocna=""; int rednadjene=0, kolonanadjene=0;
@@ -65,6 +71,9 @@ brojaczaizuzetke++;
 
             }
         }
+
+
+
 if(brojaczafigure==brojaczaizuzetke ) throw new IllegalChessMoveException(); //ako za svaku provjerenu figuru je bacilo izuzetak da je potez ilegalan
 
 
