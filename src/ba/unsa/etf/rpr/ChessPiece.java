@@ -29,6 +29,7 @@ public abstract class ChessPiece implements Cloneable{
     ChessPiece() {
         this.position="";
         this.color=Color.WHITE;
+        this.previous="";
     }
 
 }
