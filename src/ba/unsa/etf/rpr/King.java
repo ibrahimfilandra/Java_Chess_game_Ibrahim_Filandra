@@ -15,6 +15,7 @@ public class King extends ChessPiece {
          //Finalna provjera ispravnosti formata
         this.position=position;
         this.color=color;
+        this.previous=position;
     }
 
     @Override
