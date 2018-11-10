@@ -30,7 +30,7 @@ public class Program {
                 else if (s1.charAt(0) == 'N') {
                       if(s1.charAt(1)>'a' && s1.charAt(1)<'h'){
                           if(s1.charAt(2)>'1' && s1.charAt(2)<'9'){
-                              b.move(Knight.class, ChessPiece.Color.WHITE, s1);
+                              b.move(Knight.class, ChessPiece.Color.WHITE, (char)(s1.charAt(1))+""+(char)(s1.charAt(2)) );
                               ispravan=true;
                           } else ispravan=false;
                       } else ispravan=false;
@@ -39,7 +39,7 @@ public class Program {
                 else if(s1.charAt(0)=='R'){
                     if(s1.charAt(1)>'a' && s1.charAt(1)<'h'){
                         if(s1.charAt(2)>'1' && s1.charAt(2)<'9'){
-                            b.move(Rook.class, ChessPiece.Color.WHITE, s1);
+                            b.move(Rook.class, ChessPiece.Color.WHITE, (char)(s1.charAt(1))+""+(char)(s1.charAt(2)));
                             ispravan=true;
                         }else ispravan=false;
                     }else ispravan=false;
@@ -48,7 +48,7 @@ public class Program {
                 else if(s1.charAt(0)=='K'){
                     if(s1.charAt(1)>'a' && s1.charAt(1)<'h'){
                         if(s1.charAt(2)>'1' && s1.charAt(2)<'9'){
-                            b.move(King.class, ChessPiece.Color.WHITE, s1);
+                            b.move(King.class, ChessPiece.Color.WHITE, (char)(s1.charAt(1))+""+(char)(s1.charAt(2)));
                             ispravan=true;
                         }else ispravan=false;
                     }else ispravan=false;
@@ -57,7 +57,7 @@ public class Program {
                 else if(s1.charAt(0)=='Q'){
                     if(s1.charAt(1)>'a' && s1.charAt(1)<'h'){
                         if(s1.charAt(2)>'1' && s1.charAt(2)<'9'){
-                            b.move(Queen.class, ChessPiece.Color.WHITE, s1);
+                            b.move(Queen.class, ChessPiece.Color.WHITE, (char)(s1.charAt(1))+""+(char)(s1.charAt(2)));
                             ispravan=true;
                         }else ispravan=false;
                     }else ispravan=false;
@@ -66,7 +66,7 @@ public class Program {
                 else if(s1.charAt(0)=='B'){
                     if(s1.charAt(1)>'a' && s1.charAt(1)<'h'){
                         if(s1.charAt(2)>'1' && s1.charAt(2)<'9'){
-                            b.move(Bishop.class, ChessPiece.Color.WHITE, s1);
+                            b.move(Bishop.class, ChessPiece.Color.WHITE, (char)(s1.charAt(1))+""+(char)(s1.charAt(2)));
                             ispravan=true;
                         }else ispravan=false;
                     }else ispravan=false;
@@ -75,6 +75,8 @@ public class Program {
 if(!ispravan) System.out.println("Illegal move");
             } while (!ispravan);
             if(b.isCheck(ChessPiece.Color.WHITE)) System.out.println("White is in check");
+
+
         }
     }
 }
