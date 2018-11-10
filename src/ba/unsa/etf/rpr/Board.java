@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 
+import static java.lang.Math.abs;
 
 public class Board implements Cloneable{
 
@@ -43,8 +44,27 @@ public class Board implements Cloneable{
 
     boolean illegaljump(String position1, String position2) {
 
+       if(position1.charAt(0)==position2.charAt(0)){  //kretanje vertikalno
+           int razlikaredova=position1.charAt(1)-position2.charAt(1);
+           if(abs(razlikaredova)==1) return false;
+           if(razlikaredova>0){
+               for(int i=0;i<razlikaredova;i++)
+                   if(!(board[indeksiraj(position1.charAt(1))+i][position1.charAt(0)-65] instanceof PraznoPolje))
+                       return true;
+           }
+           if(razlikaredova<0){
+               for(int i=0;i<abs(razlikaredova);i++)
+                   if(!(board[indeksiraj(position1.charAt(1))-i][position1.charAt(0)-65] instanceof PraznoPolje))
+                       return true;
+           }
+
+       }
 
 
+
+
+
+return false;
     }
 
    void move (Class type, ChessPiece.Color color, String position) {
