@@ -21,42 +21,42 @@ public class Program {
                         System.out.println("White has resigned");
                         break igra;
                     }
-                    if (s1.charAt(0) > 'a' && s1.charAt(0) < 'h') {
-                        if (s1.charAt(1) > '1' && s1.charAt(1) < '9') {
+                    if (s1.charAt(0) >= 'a' && s1.charAt(0) <= 'h') {
+                        if (s1.charAt(1) >= '1' && s1.charAt(1) <= '9') {
                             b.move(Pawn.class, ChessPiece.Color.WHITE, s1);
                             ispravan = true;
                         } else ispravan = false;
                     } else if (s1.charAt(0) == 'N') {
-                        if (s1.charAt(1) > 'a' && s1.charAt(1) < 'h') {
-                            if (s1.charAt(2) > '1' && s1.charAt(2) < '9') {
+                        if (s1.charAt(1) >= 'a' && s1.charAt(1) <= 'h') {
+                            if (s1.charAt(2) >= '1' && s1.charAt(2) <= '9') {
                                 b.move(Knight.class, ChessPiece.Color.WHITE, (char) (s1.charAt(1)) + "" + (char) (s1.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s1.charAt(0) == 'R') {
-                        if (s1.charAt(1) > 'a' && s1.charAt(1) < 'h') {
-                            if (s1.charAt(2) > '1' && s1.charAt(2) < '9') {
+                        if (s1.charAt(1) >= 'a' && s1.charAt(1) <= 'h') {
+                            if (s1.charAt(2) >= '1' && s1.charAt(2) <= '9') {
                                 b.move(Rook.class, ChessPiece.Color.WHITE, (char) (s1.charAt(1)) + "" + (char) (s1.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s1.charAt(0) == 'K') {
-                        if (s1.charAt(1) > 'a' && s1.charAt(1) < 'h') {
-                            if (s1.charAt(2) > '1' && s1.charAt(2) < '9') {
+                        if (s1.charAt(1) >= 'a' && s1.charAt(1) <= 'h') {
+                            if (s1.charAt(2) >= '1' && s1.charAt(2) <= '9') {
                                 b.move(King.class, ChessPiece.Color.WHITE, (char) (s1.charAt(1)) + "" + (char) (s1.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s1.charAt(0) == 'Q') {
-                        if (s1.charAt(1) > 'a' && s1.charAt(1) < 'h') {
-                            if (s1.charAt(2) > '1' && s1.charAt(2) < '9') {
+                        if (s1.charAt(1) >= 'a' && s1.charAt(1) <= 'h') {
+                            if (s1.charAt(2) >= '1' && s1.charAt(2) <= '9') {
                                 b.move(Queen.class, ChessPiece.Color.WHITE, (char) (s1.charAt(1)) + "" + (char) (s1.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s1.charAt(0) == 'B') {
-                        if (s1.charAt(1) > 'a' && s1.charAt(1) < 'h') {
-                            if (s1.charAt(2) > '1' && s1.charAt(2) < '9') {
+                        if (s1.charAt(1) >= 'a' && s1.charAt(1) <= 'h') {
+                            if (s1.charAt(2) >= '1' && s1.charAt(2) <= '9') {
                                 b.move(Bishop.class, ChessPiece.Color.WHITE, (char) (s1.charAt(1)) + "" + (char) (s1.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
@@ -79,42 +79,42 @@ public class Program {
                         System.out.println("Black has resigned");
                         break igra;
                     }
-                    if (s2.charAt(0) > 'a' && s2.charAt(0) < 'h') {
-                        if (s2.charAt(1) > '1' && s2.charAt(1) < '9') {
+                    if (s2.charAt(0) >= 'a' && s2.charAt(0) <= 'h') {
+                        if (s2.charAt(1) >= '1' && s2.charAt(1) <= '9') {
                             b.move(Pawn.class, ChessPiece.Color.BLACK, s2);
                             ispravan = true;
                         } else ispravan = false;
                     } else if (s2.charAt(0) == 'N') {
-                        if (s2.charAt(1) > 'a' && s2.charAt(1) < 'h') {
-                            if (s2.charAt(2) > '1' && s2.charAt(2) < '9') {
+                        if (s2.charAt(1) >= 'a' && s2.charAt(1) <= 'h') {
+                            if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
                                 b.move(Knight.class, ChessPiece.Color.BLACK, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s2.charAt(0) == 'R') {
-                        if (s2.charAt(1) > 'a' && s2.charAt(1) < 'h') {
-                            if (s2.charAt(2) > '1' && s2.charAt(2) < '9') {
+                        if (s2.charAt(1) >= 'a' && s2.charAt(1) <= 'h') {
+                            if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
                                 b.move(Rook.class, ChessPiece.Color.BLACK, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s2.charAt(0) == 'K') {
-                        if (s2.charAt(1) > 'a' && s2.charAt(1) < 'h') {
-                            if (s2.charAt(2) > '1' && s2.charAt(2) < '9') {
+                        if (s2.charAt(1) >= 'a' && s2.charAt(1) <= 'h') {
+                            if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
                                 b.move(King.class, ChessPiece.Color.BLACK, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s2.charAt(0) == 'Q') {
-                        if (s2.charAt(1) > 'a' && s2.charAt(1) < 'h') {
-                            if (s2.charAt(2) > '1' && s2.charAt(2) < '9') {
+                        if (s2.charAt(1) >= 'a' && s2.charAt(1) <= 'h') {
+                            if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
                                 b.move(Queen.class, ChessPiece.Color.BLACK, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
                     } else if (s2.charAt(0) == 'B') {
-                        if (s2.charAt(1) > 'a' && s2.charAt(1) < 'h') {
-                            if (s2.charAt(2) > '1' && s2.charAt(2) < '9') {
+                        if (s2.charAt(1) >='a' && s2.charAt(1) <= 'h') {
+                            if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
                                 b.move(Bishop.class, ChessPiece.Color.WHITE, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
