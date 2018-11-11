@@ -115,7 +115,7 @@ public class Program {
                     } else if (s2.charAt(0) == 'B') {
                         if (s2.charAt(1) >='a' && s2.charAt(1) <= 'h') {
                             if (s2.charAt(2) >= '1' && s2.charAt(2) <= '9') {
-                                b.move(Bishop.class, ChessPiece.Color.WHITE, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
+                                b.move(Bishop.class, ChessPiece.Color.BLACK, (char) (s2.charAt(1)) + "" + (char) (s2.charAt(2)));
                                 ispravan = true;
                             } else ispravan = false;
                         } else ispravan = false;
